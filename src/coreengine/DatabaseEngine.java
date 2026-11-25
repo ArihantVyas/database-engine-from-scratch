@@ -28,6 +28,7 @@ public class DatabaseEngine {
     String deleteDatabase(){
         if(currentDatabase == null) return "Only current Database can be deleted";
         else{
+            currentDatabase.deleteTable();
             allDatabases.remove(currentDatabase);
             return "Database deleted";
         }
@@ -35,5 +36,11 @@ public class DatabaseEngine {
 
     void showAllDatabases(){
         for(Database db : allDatabases) System.out.println(db.databaseName);
+    }
+
+    void useDatabase(String useDatabaseName){
+        for(Database db : allDatabases){
+            if(db.databaseName.equals(useDatabaseName)) setCurrentDatabase(db);
+        }
     }
  }

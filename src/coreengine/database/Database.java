@@ -14,11 +14,24 @@ public class Database {
         this.allTables = new ArrayList<>();
     }
 
-    public createTable(){
+    public void createTable(String tableName){
+        Table newTable = new Table(tableName);
+        allTables.add(newTable);
+    }
+
+    public void showAllTables(){
+        for(Table tb : allTables) System.out.println(tb.tableName);
+    }
+
+    public void truncateTable(){
 
     }
 
-    void showAllTables(){
-        for(Table tb : allTables) System.out.println(tb.tableName);
+    public void deleteTable(){
+
+    }
+
+    public void updateTableName(){
+
     }
 }
